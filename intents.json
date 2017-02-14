@@ -1,0 +1,16 @@
+{
+    "intents": [
+        {
+            "intent": "AddTask",
+            "slots": [
+              {
+                "name": "Task",
+                "type": "AMAZON.LITERAL"
+              }
+            ]
+        },
+        {
+            "intent": "YesIntent"
+        }
+    ]
+}

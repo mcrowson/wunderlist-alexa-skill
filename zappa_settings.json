@@ -4,5 +4,9 @@
         "app_function": "app.app", 
         "s3_bucket": "zappa-wm25tlkd1",
         "remote_env": "s3://zappa-wm25tlkd1/secrets.json"
+    },
+    "oauth": {
+        "extends": "dev",
+        "remote_env": "s3://zappa-wm25tlkd1/secrets_oath.json"
     }
 }

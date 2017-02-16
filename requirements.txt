@@ -2,3 +2,4 @@ flask
 zappa
 flask-ask
 wunderpy2
+flask-sessionstore

@@ -4,13 +4,17 @@
             "intent": "AddTask",
             "slots": [
               {
-                "name": "Task",
+                "name": "task",
+                "type": "AMAZON.LITERAL"
+              },
+              {
+                "name": "task_list",
                 "type": "AMAZON.LITERAL"
               }
             ]
         },
-        {
-            "intent": "YesIntent"
-        }
+      {
+        "intent": "YesIntent"
+      }
     ]
 }

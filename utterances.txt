@@ -1,16 +1,12 @@
 YesIntent yes
 YesIntent sure
-AddTask to add {milk | Task} to wunderlist
-AddTask to add {milk | Task} to my grocery list
-AddTask to add {milk | Task} to groceries
-AddTask to add {milk | Task} to my groceries
-AddTask to put {milk | Task} on wunderlist
-AddTask to put {milk | Task} on my grocery list
-AddTask to put {milk | Task} in groceries
-AddTask add {milk | Task} to wunderlist
-AddTask add {milk | Task} to my grocery list
-AddTask add {milk | Task} to groceries
-AddTask add {milk | Task} to my groceries
-AddTask put {milk | Task} on wunderlist
-AddTask put {milk | Task} on my grocery list
-AddTask put {milk | Task} in groceries
+AddTask to add {almond milk  | task} to my {groceries to buy| task_list} list
+AddTask to add {almond milk  | task} to {groceries to buy| task_list}
+AddTask to add {almond milk  | task} to my {groceries to buy| task_list}
+AddTask to put {almond milk  | task} on my {groceries to buy| task_list} list
+AddTask to put {almond milk  | task} in {groceries to buy| task_list}
+AddTask add {almond milk  | task} to my {groceries to buy| task_list} list
+AddTask add {almond milk  | task} to {groceries to buy| task_list}
+AddTask add {almond milk  | task} to my {groceries to buy| task_list}
+AddTask put {almond milk  | task} on my {groceries to buy| task_list} list
+AddTask put {almond milk  | task} in {groceries to buy| task_list}

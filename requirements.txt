@@ -1,5 +1,2 @@
-flask
-zappa
 flask-ask
-wunderpy2
-flask-sessionstore
+git+https://github.com/oashour/wunderpy2.git@04ccfd7daaaa79ec2af4c385c5ef46474de608da

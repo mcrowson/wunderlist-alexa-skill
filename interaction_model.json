@@ -1,0 +1,37 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "wunderlist",
+            "intents": [
+                {
+                    "name": "AddTask",
+                    "slots": [
+                        {
+                            "name": "task",
+                            "type": "AMAZON.LITERAL"
+                        }
+                    ],
+                    "samples": [
+                        "to put {almond milk|task} on the Grocery list",
+                        "to add {almond milk|task} to the Grocery list",
+                        "to add {almond milk|task}",
+                        "to put {almond milk|task}",
+                        "add {almond milk|task}",
+                        "put {almond milk|task}",
+                        "{almond milk|task} please",
+                        "{almond milk|task}"
+                        ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": [
+                        "no",
+                        "not right now",
+                        "nope"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}

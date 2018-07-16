@@ -1,6 +1,6 @@
 import logging
-from flask import Flask, session
-from flask_ask import Ask, statement
+from flask import Flask
+from flask_ask import Ask, statement, question
 import os
 import wunderpy2
 import difflib
@@ -14,39 +14,41 @@ client = api.get_client(access_token=access_token, client_id=client_id)
 SAVED_REQUESTS = {}
 
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
 ask = Ask(app, "/")
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
+GROCERY_LIST_NAME = "Grocery"
+GROCERY_LIST_ID = os.environ.get("GROCERY_LIST_ID")
 
+
+@ask.default_intent
 @ask.intent("AddTask")
-def add_task(task, task_list):
-    if not task or not task_list:
-        return statement("I'm sorry, I did not hear what you wanted to put on the list")
+def add_task(task):
 
-    lists = client.get_lists()
-    list_names = [l[u'title'] for l in lists]
-    close_matches = difflib.get_close_matches(task_list, list_names)
+    app.logger.info("Got {} to put on {}".format(task, GROCERY_LIST_NAME))
 
-    if len(close_matches) < 1:
-        return statement("I could not understand which list you want me to use")
+    if not task:
+        return question("I'm sorry, could you repeat that please?")
 
-    intended_list_name = close_matches[0]
-
-    chosen_list = None
-    for l in lists:
-        if l[u'title'] == intended_list_name:
-            chosen_list = l
-            break
-
-    if not chosen_list:
-        return statement("I could not find the {0!s} list".format(task_list))
-
-    res = client.create_task(chosen_list[u'id'], task)
-
+    res = client.create_task(GROCERY_LIST_ID, task)
+    print(res)
     if u'id' not in res:
-        return statement("I could not add {0!s} to the {1!s} list".format(task, task_list))
+        return statement("I could not add {0!s} to the {1!s} list".format(task, GROCERY_LIST_NAME))
 
-    return statement('Done')
+    # card_text = "{} added to {}".format(task, task_list)
+    return question("Anything else?")
+
+
+@ask.default_intent
+@ask.intent("NoIntent")
+def no():
+    return statement("OK, I have updated your {} list.".format(GROCERY_LIST_NAME))
+
+
+def lambda_handler(event, _context):
+    return ask.run_aws_lambda(event)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

@@ -1,3 +1,5 @@
+NOTICE: This project is no longer active as Microsoft purchased Wunderlist and now serves Microsoft ToDo. Check out their instructions for setting this up here: https://support.microsoft.com/en-us/office/using-microsoft-to-do-with-alexa-via-cortana-1a29f12c-c08f-48ca-bde0-4932a0c90f2b 
+
 My wife wanted to be able to add groceries to our Grocery wunderlist.
 
 This has our auth token loaded in environment variable, so no real account 
